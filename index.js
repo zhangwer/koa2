@@ -4,9 +4,11 @@ const path = require('path');
 const router = require('koa-router')();
 const koaBody = require('koa-body');
 const static = require('koa-static');
+const cors = require('@koa/cors')
+
 
 const app = new Koa();
-
+app.use(cors());
 /* 
   koa-body 对应的API及使用 看这篇文章 http://www.ptbird.cn/koa-body.html
   或者看 github上的官网 https://github.com/dlau/koa-body
@@ -19,7 +21,7 @@ app.use(koaBody({
   }
 }));
 
-const uploadUrl = "http://localhost/static/upload";
+const uploadUrl = "http://42.192.144.93/static/upload";
 
 router.get('/', (ctx) => {
   // 设置头类型, 如果不设置，会直接下载该页面
