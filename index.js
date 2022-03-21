@@ -6,4 +6,4 @@ app.use(async ctx => {
   console.log('ok');
 });
 
-app.listen(8080);
+app.listen(80);
