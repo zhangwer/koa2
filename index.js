@@ -16,7 +16,7 @@ app.use(cors());
 app.use(koaBody({
   multipart: true, // 支持文件上传
   formidable: {
-    maxFieldsSize: 2 * 1024 * 1024, // 最大文件为2兆
+    maxFieldsSize: 10 * 1024 * 1024, // 最大文件为2兆
     multipart: true // 是否支持 multipart-formdate 的表单
   }
 }));
