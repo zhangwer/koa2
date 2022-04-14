@@ -5,8 +5,6 @@ const router = require('koa-router')();
 const koaBody = require('koa-body');
 const static = require('koa-static');
 const cors = require('@koa/cors')
-
-
 const app = new Koa();
 app.use(cors());
 /* 
@@ -55,18 +53,16 @@ router.post('/upload', (ctx) => {
       } else {
         fileReader.pipe(writeStream);
         ctx.body = {
-          url: uploadUrl + `/${file.name}`,
-          code: 0,
-          message: '上传成功'
+          errno: 0,
+          data: { url: uploadUrl + `/${file.name}`, }
         };
       }
     });
   } else {
     fileReader.pipe(writeStream);
     ctx.body = {
-      url: uploadUrl + `/${file.name}`,
-      code: 0,
-      message: '上传成功'
+      errno: 0,
+      data: { url: uploadUrl + `/${file.name}`, }
     };
   }
 });
